@@ -30,12 +30,9 @@ router.beforeEach((to, from, next) => {
  // const authRequired = to.meta.login;
 if (to.path == "/login" && auth.currentUser){
   next('/')
-  console.log("logueado")
 } else if (to.matched.some(route => route.meta.login) && !auth.currentUser){
   next('login')
-  console.log("redireccionó por no logueado")
 } else{
-  console.log("Otro")
   next()
 }
   
